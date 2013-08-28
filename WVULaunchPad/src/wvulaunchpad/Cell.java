@@ -33,54 +33,62 @@ public class Cell{
 	public void setNucleus(String filePath){
 		nucleus = new Nucleus(filePath);
 	}
-	public void setInput(String name, String filePath){
+	public void addInput(String name, String filePath){
 		inputs.put(name, new Input(filePath));
 	}
 	
-	public void removeAxon(){
+	public void removeAxon() throws CellException{
 		if (axon != null){
 			axon = null;
 		}
+		else throw new CellException("No axon exists to be removed.");
 	}
-	public void removeBody(){
-		if (axon != null){
-			axon = null;
+	public void removeBody() throws CellException{
+		if (body != null){
+			body = null;
 		}
+		else throw new CellException("No cell body exists to be removed.");
 	}
-	public void removeDendrite(){
-		if (axon != null){
-			axon = null;
+	public void removeDendrite() throws CellException{
+		if (dendrite != null){
+			dendrite = null;
 		}
+		else throw new CellException("No dendrite exists to be removed.");
 	}
-	public void removeNucleus(){
-		if (axon != null){
-			axon = null;
+	public void removeNucleus() throws CellException{
+		if (nucleus != null){
+			nucleus = null;
 		}
+		else throw new CellException("No nucleus exists to be removed.");
 	}
-	public void removeInput(String inputName){
+	public void removeInput(String inputName) throws CellException{
 		if (inputs.containsKey(inputName)){
 			inputs.remove(inputName);
 		}
+		else throw new CellException("No such input exists to be removed.");
 	}
 	
 	public String getAxonFilePath(){
 		return axon.getFilePath();
 	}
 	public String getBodyFilePath(){
-		
+		return body.getFilePath();
 	}
 	public String getDendriteFilePath(){
-		
+		return dendrite.getFilePath();
 	}
 	public String getNucleusFilePath(){
-		
+		return nucleus.getFilePath();
 	}
-	public String getInputFilePath(String inputName){
-		
+	public String getInputFilePath(String inputName) throws CellException{
+		if (inputs.containsKey(inputName)){
+			return inputs.get(inputName).getFilePath();
+		}
+		else throw new CellException("Cannot find the input: " + inputName);
 	}
 	
-	public void setName(String givenName){
-		this.name = givenName;
+	public void setName(String newName){
+		this.name = newName;
 	}
 	public String getName(){
 		return name;
