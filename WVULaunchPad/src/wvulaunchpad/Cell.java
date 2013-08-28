@@ -64,7 +64,7 @@ public class Cell{
 	}
 	
 	public String getAxonFilePath(){
-		
+		return axon.getFilePath();
 	}
 	public String getBodyFilePath(){
 		
