@@ -1,4 +1,4 @@
-package wvulaunchpad;
+package parts;
 
 public class Nucleus extends Part {
 	
