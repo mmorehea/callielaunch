@@ -2,6 +2,8 @@ package wvulaunchpad;
 
 public class Nucleus extends Part {
 	
-	publ
+	public Nucleus(String filePath){
+		super.setFilePath(filePath);
+	}
 
 }
