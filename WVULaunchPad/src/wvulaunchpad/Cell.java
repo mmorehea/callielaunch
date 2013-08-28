@@ -1,6 +1,6 @@
 package wvulaunchpad;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import parts.Axon;
 import parts.Body;
@@ -15,27 +15,89 @@ public class Cell{
 	private Body body;
 	private Dendrite dendrite;
 	private Nucleus nucleus;
-	private ArrayList<Input> inputs = new ArrayList<Input>();
+	private HashMap<String, Input> inputs = new HashMap<String, Input>();
 	
 	public Cell(String givenName){
 		this.name = givenName;
 	}
 	
-	public void addAxon(String filePath){
+	public void setAxon(String filePath){
 		axon = new Axon(filePath);
 	}
-	public void addBody(String filePath){
+	public void setBody(String filePath){
 		body = new Body(filePath);
 	}
-	public void addDendrite(String filePath){
+	public void setDendrite(String filePath){
 		dendrite = new Dendrite(filePath);
 	}
-	public void addNucleus(String filePath){
+	public void setNucleus(String filePath){
 		nucleus = new Nucleus(filePath);
 	}
-	public void addInput(String filePath){
-		inputs.add(new Input(filePath));
+	public void setInput(String name, String filePath){
+		inputs.put(name, new Input(filePath));
 	}
+	
+	public void removeAxon(){
+		if (axon != null){
+			axon = null;
+		}
+	}
+	public void removeBody(){
+		if (axon != null){
+			axon = null;
+		}
+	}
+	public void removeDendrite(){
+		if (axon != null){
+			axon = null;
+		}
+	}
+	public void removeNucleus(){
+		if (axon != null){
+			axon = null;
+		}
+	}
+	public void removeInput(String inputName){
+		if (inputs.containsKey(inputName)){
+			inputs.remove(inputName);
+		}
+	}
+	
+	public String getAxonFilePath(){
+		
+	}
+	public String getBodyFilePath(){
+		
+	}
+	public String getDendriteFilePath(){
+		
+	}
+	public String getNucleusFilePath(){
+		
+	}
+	public String getInputFilePath(String inputName){
+		
+	}
+	
+	public void setName(String givenName){
+		this.name = givenName;
+	}
+	public String getName(){
+		return name;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //---legacy code---
 // author tonye	
