@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  *
  * @author tonye
  */
-public class Part implements Serializable{
+abstract public class Part implements Serializable{
     /**
 	 * 
 	 */

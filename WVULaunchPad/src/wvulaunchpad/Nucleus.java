@@ -1,5 +1,7 @@
 package wvulaunchpad;
 
-public class Nucleus {
+public class Nucleus extends Part {
+	
+	publ
 
 }
