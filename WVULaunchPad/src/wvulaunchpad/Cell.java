@@ -1,12 +1,14 @@
 package wvulaunchpad;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import parts.Axon;
 import parts.Body;
 import parts.Dendrite;
 import parts.Input;
 import parts.Nucleus;
+import parts.PartFactory;
 
 
 public class Cell{
@@ -22,19 +24,38 @@ public class Cell{
 	}
 	
 	public void setAxon(String filePath){
-		axon = new Axon(filePath);
+		axon = new PartFactory().makeAxon(filePath);
 	}
+	public void setAxon(Axon axon){
+		if (axon != null) this.axon = axon;
+	}
+	
 	public void setBody(String filePath){
-		body = new Body(filePath);
+		body = new PartFactory().makeBody(filePath);
 	}
+	public void setBody(Body body){
+		if (body != null) this.body = body;
+	}
+	
 	public void setDendrite(String filePath){
-		dendrite = new Dendrite(filePath);
+		dendrite = new PartFactory().makeDendrite(filePath);
 	}
+	public void setDendrite(Dendrite dendrite){
+		if (dendrite != null) this.dendrite = dendrite;
+	}
+	
 	public void setNucleus(String filePath){
-		nucleus = new Nucleus(filePath);
+		nucleus = new PartFactory().makeNucleus(filePath);
 	}
+	public void setNucleus(Nucleus nucleus){
+		if (nucleus != null) this.nucleus = nucleus;
+	}
+	
 	public void addInput(String name, String filePath){
 		inputs.put(name, new Input(filePath));
+	}
+	public void addInput(String name, Input input){
+		inputs.put(name, input);
 	}
 	
 	public void removeAxon() throws CellException{
@@ -94,6 +115,22 @@ public class Cell{
 		return name;
 	}
 	
+	public Cell clone(){
+		Cell clonedCell = new Cell(name);
+		
+		clonedCell.setAxon(axon.clone());
+		clonedCell.setBody(body.clone());
+		clonedCell.setDendrite(dendrite.clone());
+		clonedCell.setNucleus(nucleus.clone());
+		
+		String[] inputNames = (String[]) inputs.keySet().toArray();
+		for (int i = 0; i < inputNames.length; i++){
+			Input clonedInput = inputs.get(inputNames[i]).clone();
+			clonedCell.addInput(inputNames[i], clonedInput);	
+		}
+		
+		return clonedCell;
+	}
 	
 	
 	

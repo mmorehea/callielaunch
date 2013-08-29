@@ -28,4 +28,9 @@ public class Set {
 		}
 		else throw new CellException("Cannot find the cell: " + cellName);
 	}
+	public void removeCell(String cellName) throws CellException{
+		if (cells.containsKey(cellName)){
+			cells.remove(cellName);
+		}
+	}
 }
