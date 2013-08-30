@@ -33,29 +33,29 @@ public class Cell{
 	public void setBody(String filePath){
 		body = new PartFactory().makeBody(filePath);
 	}
-	public void setBody(Body body){
-		if (body != null) this.body = body;
+	public void setBody(Body givenBody){
+		if (givenBody != null) this.body = givenBody;
 	}
 	
 	public void setDendrite(String filePath){
 		dendrite = new PartFactory().makeDendrite(filePath);
 	}
-	public void setDendrite(Dendrite dendrite){
-		if (dendrite != null) this.dendrite = dendrite;
+	public void setDendrite(Dendrite givenDendrite){
+		if (givenDendrite != null) this.dendrite = givenDendrite;
 	}
 	
 	public void setNucleus(String filePath){
 		nucleus = new PartFactory().makeNucleus(filePath);
 	}
-	public void setNucleus(Nucleus nucleus){
-		if (nucleus != null) this.nucleus = nucleus;
+	public void setNucleus(Nucleus givenNucleus){
+		if (givenNucleus != null) this.nucleus = givenNucleus;
 	}
 	
 	public void addInput(String name, String filePath){
 		inputs.put(name, new Input(filePath));
 	}
-	public void addInput(String name, Input input){
-		inputs.put(name, input);
+	public void addInput(String name, Input givenInput){
+		inputs.put(name, givenInput);
 	}
 	
 	public void removeAxon() throws CellException{

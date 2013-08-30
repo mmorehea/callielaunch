@@ -20,7 +20,10 @@ public class Set {
 	}
 	
 	public void addCell(String cellName, Cell cell){
-		cells.put(cellName, cell);
+		if (cells.containsKey(cellName)){
+			throw new CellException("This set already contains a cell with that name.")
+		}
+		else cells.put(cellName, cell.clone());
 	}
 	public Cell getCell(String cellName) throws CellException{
 		if (cells.containsKey(cellName)){
