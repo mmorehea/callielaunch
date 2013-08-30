@@ -24,28 +24,28 @@ public class Cell{
 	}
 	
 	public void setAxon(String filePath){
-		axon = new PartFactory().makeAxon(filePath);
+		axon = new Axon(filePath);
 	}
 	public void setAxon(Axon axon){
 		if (axon != null) this.axon = axon;
 	}
 	
 	public void setBody(String filePath){
-		body = new PartFactory().makeBody(filePath);
+		body = new Body(filePath);
 	}
 	public void setBody(Body givenBody){
 		if (givenBody != null) this.body = givenBody;
 	}
 	
 	public void setDendrite(String filePath){
-		dendrite = new PartFactory().makeDendrite(filePath);
+		dendrite = new Dendrite(filePath);
 	}
 	public void setDendrite(Dendrite givenDendrite){
 		if (givenDendrite != null) this.dendrite = givenDendrite;
 	}
 	
 	public void setNucleus(String filePath){
-		nucleus = new PartFactory().makeNucleus(filePath);
+		nucleus = new Nucleus(filePath);
 	}
 	public void setNucleus(Nucleus givenNucleus){
 		if (givenNucleus != null) this.nucleus = givenNucleus;
