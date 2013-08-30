@@ -8,7 +8,6 @@ import parts.Body;
 import parts.Dendrite;
 import parts.Input;
 import parts.Nucleus;
-import parts.PartFactory;
 
 
 public class Cell{
@@ -115,6 +114,7 @@ public class Cell{
 		return name;
 	}
 	
+	@Override
 	public Cell clone(){
 		Cell clonedCell = new Cell(name);
 		
