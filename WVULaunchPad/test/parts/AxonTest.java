@@ -2,6 +2,8 @@ package parts;
 
 import static org.junit.Assert.*;
 
+import neuron.Axon;
+
 import org.junit.Before;
 import org.junit.Test;
 
