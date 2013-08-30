@@ -1,6 +1,10 @@
-package wvulaunchpad;
+package sets;
 
 import java.util.HashMap;
+
+import neuron.Cell;
+import neuron.CellException;
+
 
 public class Set {
 	private String name;
@@ -19,9 +23,9 @@ public class Set {
 		return name;
 	}
 	
-	public void addCell(String cellName, Cell cell){
+	public void addCell(String cellName, Cell cell) throws CellException{
 		if (cells.containsKey(cellName)){
-			throw new CellException("This set already contains a cell with that name.")
+			throw new CellException("This set already contains a cell with that name.");
 		}
 		else cells.put(cellName, cell.clone());
 	}

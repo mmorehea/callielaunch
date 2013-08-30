@@ -1,13 +1,8 @@
-package wvulaunchpad;
+package neuron;
 
 import java.util.HashMap;
 import java.util.Set;
 
-import parts.Axon;
-import parts.Body;
-import parts.Dendrite;
-import parts.Input;
-import parts.Nucleus;
 
 
 public class Cell{

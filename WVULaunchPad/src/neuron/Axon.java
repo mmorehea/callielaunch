@@ -1,4 +1,4 @@
-package parts;
+package neuron;
 
 public class Axon extends Part{
 	
