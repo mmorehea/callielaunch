@@ -3,6 +3,12 @@ package neuron;
 import java.util.HashMap;
 import java.util.Set;
 
+import neuron.parts.Axon;
+import neuron.parts.Body;
+import neuron.parts.Dendrite;
+import neuron.parts.Input;
+import neuron.parts.Nucleus;
+
 
 
 public class Cell{
@@ -16,7 +22,11 @@ public class Cell{
 	public Cell(String givenName){
 		this.name = givenName;
 	}
-	
+
+	//Setters
+	public void setName(String newName){
+		this.name = newName;
+	}
 	public void setAxon(String filePath){
 		axon = new Axon(filePath);
 	}
@@ -52,28 +62,21 @@ public class Cell{
 		inputs.put(name, givenInput);
 	}
 	
+	//Removers
 	public void removeAxon() throws CellException{
-		if (axon != null){
-			axon = null;
-		}
+		if (axon != null) axon = null;
 		else throw new CellException("No axon exists to be removed.");
 	}
 	public void removeBody() throws CellException{
-		if (body != null){
-			body = null;
-		}
+		if (body != null) body = null;
 		else throw new CellException("No cell body exists to be removed.");
 	}
 	public void removeDendrite() throws CellException{
-		if (dendrite != null){
-			dendrite = null;
-		}
+		if (dendrite != null) dendrite = null;
 		else throw new CellException("No dendrite exists to be removed.");
 	}
 	public void removeNucleus() throws CellException{
-		if (nucleus != null){
-			nucleus = null;
-		}
+		if (nucleus != null) nucleus = null;
 		else throw new CellException("No nucleus exists to be removed.");
 	}
 	public void removeInput(String inputName) throws CellException{
@@ -83,6 +86,7 @@ public class Cell{
 		else throw new CellException("No such input exists to be removed.");
 	}
 	
+	//Getters
 	public String getAxonFilePath(){
 		return axon.getFilePath();
 	}
@@ -101,12 +105,17 @@ public class Cell{
 		}
 		else throw new CellException("Cannot find the input: " + inputName);
 	}
-	
-	public void setName(String newName){
-		this.name = newName;
-	}
 	public String getName(){
 		return name;
+		
+	}
+	
+	public String toString(){
+		String id = name + ":\n\t";
+		return id;
+	}
+	public String toXML(){
+		return null;
 	}
 	
 	@Override
@@ -127,39 +136,5 @@ public class Cell{
 		return clonedCell;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//---legacy code---
-// author tonye	
-//    private ArrayList<Part> parts = new ArrayList<Part>();
-//    String name = " ";
-//
-//    public Cell() {
-//    }
-//
-//    public void addPart(Part o) {
-//        parts.add(o);
-//    }
-//
-//    public String cellParts(String n) {
-//        name = n;
-//        String s = " ";
-//        for (int i = 0; i < parts.size(); i++) {
-//            Part p = parts.get(i);
-//            s = n + " " + p.toString();
-//            System.out.println("These are the cell parts " + s);
-//        }
-//        return s;
-//
-//    }
+
 }

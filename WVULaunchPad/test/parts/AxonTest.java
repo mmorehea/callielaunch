@@ -2,7 +2,7 @@ package parts;
 
 import static org.junit.Assert.*;
 
-import neuron.Axon;
+import neuron.parts.Axon;
 
 import org.junit.Before;
 import org.junit.Test;

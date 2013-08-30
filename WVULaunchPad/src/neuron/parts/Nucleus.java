@@ -1,9 +1,10 @@
-package neuron;
+package neuron.parts;
 
 public class Nucleus extends Part {
 	
 	public Nucleus(String filePath){
 		super.setFilePath(filePath);
+		super.setType("nucleus");
 	}
 	@Override
 	public Nucleus clone(){
