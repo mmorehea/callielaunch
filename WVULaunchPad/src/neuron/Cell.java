@@ -11,7 +11,6 @@ import neuron.parts.Nucleus;
 import neuron.parts.Part;
 
 
-
 public class Cell{
 	private String name;
 	private HashMap<String, Part> parts = new HashMap<String, Part>();
@@ -29,7 +28,7 @@ public class Cell{
 	public void setAxon(String filePath){
 		parts.put("axon", new Axon(filePath));
 	}
-	public void setCellBody(String filePath){
+	public void setBody(String filePath){
 		parts.put("body", new Body(filePath));
 	}
 	public void setDendrite(String filePath){
@@ -39,9 +38,23 @@ public class Cell{
 		parts.put("nucleus", new Nucleus(filePath));
 	}
 	public void setInputs(String[] filePaths){
+		inputs = new ArrayList<Input>();
 		for (String filePath : filePaths){
 			inputs.add(new Input(filePath));
 		}
+	}
+	
+	public void removeAxon(){
+		parts.remove("axon");
+	}
+	public void removeBody(){
+		parts.remove("body");
+	}
+	public void removeDendrite(){
+		parts.remove("dendrite");
+	}
+	public void removeNucleus(){
+		parts.remove("nucleus");
 	}
 	
 	//Getters
@@ -51,7 +64,7 @@ public class Cell{
 	public String getAxonPath(){
 		return (parts.get("axon").getFilePath());	
 	}
-	public String getCellBodyPath(){
+	public String getBodyPath(){
 		return (parts.get("body").getFilePath());
 	}
 	public String getDendritePath(){
@@ -62,6 +75,21 @@ public class Cell{
 	}
 
 
+	public Cell clone(){
+		Cell clonedCell = new Cell(this.name);
+		
+		clonedCell.setAxon(parts.get("axon").getFilePath());
+		clonedCell.setBody(parts.get("body").getFilePath());
+		clonedCell.setDendrite(parts.get("dendrite").getFilePath());
+		clonedCell.setNucleus(parts.get("nucleus").getFilePath());
+		
+		String[] clonedInputPaths = new String[inputs.size()];
+		for (int i = 0; i < inputs.size(); i++){
+			clonedInputPaths[i] = inputs.get(i).getFilePath();
+		}
+		clonedCell.setInputs(clonedInputPaths);
+		return null;
+	}
 	
 	public String toString(){
 		String id = name + ":\n\t";
