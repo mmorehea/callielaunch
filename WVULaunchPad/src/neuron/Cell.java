@@ -1,23 +1,22 @@
 package neuron;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 import neuron.parts.Axon;
 import neuron.parts.Body;
 import neuron.parts.Dendrite;
 import neuron.parts.Input;
 import neuron.parts.Nucleus;
+import neuron.parts.Part;
 
 
 
 public class Cell{
 	private String name;
-	private Axon axon;
-	private Body body;
-	private Dendrite dendrite;
-	private Nucleus nucleus;
-	private HashMap<String, Input> inputs = new HashMap<String, Input>();
+	private HashMap<String, Part> parts = new HashMap<String, Part>();
+	private ArrayList<Input> inputs = new ArrayList<Input>();
+	
 	
 	public Cell(String givenName){
 		this.name = givenName;
@@ -28,87 +27,41 @@ public class Cell{
 		this.name = newName;
 	}
 	public void setAxon(String filePath){
-		axon = new Axon(filePath);
+		parts.put("axon", new Axon(filePath));
 	}
-	public void setAxon(Axon axon){
-		if (axon != null) this.axon = axon;
+	public void setCellBody(String filePath){
+		parts.put("body", new Body(filePath));
 	}
-	
-	public void setBody(String filePath){
-		body = new Body(filePath);
-	}
-	public void setBody(Body givenBody){
-		if (givenBody != null) this.body = givenBody;
-	}
-	
 	public void setDendrite(String filePath){
-		dendrite = new Dendrite(filePath);
+		parts.put("dendrite", new Dendrite(filePath));
 	}
-	public void setDendrite(Dendrite givenDendrite){
-		if (givenDendrite != null) this.dendrite = givenDendrite;
-	}
-	
 	public void setNucleus(String filePath){
-		nucleus = new Nucleus(filePath);
+		parts.put("nucleus", new Nucleus(filePath));
 	}
-	public void setNucleus(Nucleus givenNucleus){
-		if (givenNucleus != null) this.nucleus = givenNucleus;
-	}
-	
-	public void addInput(String name, String filePath){
-		inputs.put(name, new Input(filePath));
-	}
-	public void addInput(String name, Input givenInput){
-		inputs.put(name, givenInput);
-	}
-	
-	//Removers
-	public void removeAxon() throws CellException{
-		if (axon != null) axon = null;
-		else throw new CellException("No axon exists to be removed.");
-	}
-	public void removeBody() throws CellException{
-		if (body != null) body = null;
-		else throw new CellException("No cell body exists to be removed.");
-	}
-	public void removeDendrite() throws CellException{
-		if (dendrite != null) dendrite = null;
-		else throw new CellException("No dendrite exists to be removed.");
-	}
-	public void removeNucleus() throws CellException{
-		if (nucleus != null) nucleus = null;
-		else throw new CellException("No nucleus exists to be removed.");
-	}
-	public void removeInput(String inputName) throws CellException{
-		if (inputs.containsKey(inputName)){
-			inputs.remove(inputName);
+	public void setInputs(String[] filePaths){
+		for (String filePath : filePaths){
+			inputs.add(new Input(filePath));
 		}
-		else throw new CellException("No such input exists to be removed.");
 	}
 	
 	//Getters
-	public String getAxonFilePath(){
-		return axon.getFilePath();
-	}
-	public String getBodyFilePath(){
-		return body.getFilePath();
-	}
-	public String getDendriteFilePath(){
-		return dendrite.getFilePath();
-	}
-	public String getNucleusFilePath(){
-		return nucleus.getFilePath();
-	}
-	public String getInputFilePath(String inputName) throws CellException{
-		if (inputs.containsKey(inputName)){
-			return inputs.get(inputName).getFilePath();
-		}
-		else throw new CellException("Cannot find the input: " + inputName);
-	}
 	public String getName(){
 		return name;
-		
 	}
+	public String getAxonPath(){
+		return (parts.get("axon").getFilePath());	
+	}
+	public String getCellBodyPath(){
+		return (parts.get("body").getFilePath());
+	}
+	public String getDendritePath(){
+		return (parts.get("dendrite").getFilePath());
+	}
+	public String getNucleusPath(){
+		return (parts.get("nucleus").getFilePath());
+	}
+
+
 	
 	public String toString(){
 		String id = name + ":\n\t";
@@ -117,24 +70,4 @@ public class Cell{
 	public String toXML(){
 		return null;
 	}
-	
-	@Override
-	public Cell clone(){
-		Cell clonedCell = new Cell(name);
-		
-		clonedCell.setAxon(axon.clone());
-		clonedCell.setBody(body.clone());
-		clonedCell.setDendrite(dendrite.clone());
-		clonedCell.setNucleus(nucleus.clone());
-		
-		String[] inputNames = (String[]) inputs.keySet().toArray();
-		for (int i = 0; i < inputNames.length; i++){
-			Input clonedInput = inputs.get(inputNames[i]).clone();
-			clonedCell.addInput(inputNames[i], clonedInput);	
-		}
-		
-		return clonedCell;
-	}
-	
-
 }
