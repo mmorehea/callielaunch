@@ -1,4 +1,4 @@
-package neuron;
+package cells;
 
 import java.util.ArrayList;
 import java.util.HashMap;

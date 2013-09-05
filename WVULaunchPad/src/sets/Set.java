@@ -2,8 +2,8 @@ package sets;
 
 import java.util.HashMap;
 
-import neuron.Cell;
-import neuron.CellException;
+import cells.Cell;
+import cells.CellException;
 
 
 public class Set {
