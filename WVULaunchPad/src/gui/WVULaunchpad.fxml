@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="777.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.SimpleController">
+  <children>
+    <HBox minHeight="544.0" prefHeight="567.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <VBox prefHeight="547.0" prefWidth="332.0">
+          <children>
+            <AnchorPane minHeight="32.0" prefHeight="42.0" prefWidth="333.0">
+              <children>
+                <Button fx:id="newCellButton" layoutX="0.0" layoutY="4.0" mnemonicParsing="false" text="New" />
+                <TextField fx:id="currentCellName" alignment="CENTER" focusTraversable="false" prefHeight="27.0" prefWidth="201.00009999999747" text="Cell Name" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="2.0" />
+                <Button id="saveButton" fx:id="saveCellButton" layoutX="264.0" layoutY="4.0" minWidth="24.9998779296875" mnemonicParsing="false" onAction="#saveCell" prefHeight="23.0" prefWidth="64.0" text="Save">
+                  <font>
+                    <Font size="13.0" />
+                  </font>
+                </Button>
+              </children>
+              <padding>
+                <Insets fx:id="x2" />
+              </padding>
+            </AnchorPane>
+            <VBox padding="$x2" prefHeight="90.0" prefWidth="322.0">
+              <children>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="333.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="86.0" text="Nucleus:" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="1.0" />
+                    <Button id="nucleusAdd" fx:id="addNucleusButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#getPath" prefHeight="20.0" prefWidth="200.0" text="Add Nucleus" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="7.0" />
+                    <Button id="nucleusRemove" fx:id="removeNucleusButton" cancelButton="false" layoutX="300.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.000091552734375" prefWidth="25.0" text="X">
+                      <font>
+                        <Font size="10.0" fx:id="x1" />
+                      </font>
+                    </Button>
+                  </children>
+                </AnchorPane>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="322.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="86.0" text="Cell Body:" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="-1.0" />
+                    <Button id="bodyAdd" fx:id="addBodyButton" minHeight="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Add Cell Body" AnchorPane.bottomAnchor="3.5" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="3.5" />
+                    <Button id="bodyRemove" fx:id="removeBodyButton" contentDisplay="LEFT" font="$x1" layoutX="300.0" layoutY="2.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.000091552734375" prefWidth="25.0" text="X" />
+                  </children>
+                </AnchorPane>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="322.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="86.0" text="Axon:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="0.0" />
+                    <Button id="axonAdd" fx:id="addAxonButton" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="200.00009999999747" text="Add Axon" AnchorPane.bottomAnchor="3.5" AnchorPane.leftAnchor="87.5" AnchorPane.rightAnchor="34.5" AnchorPane.topAnchor="3.5" />
+                    <Button id="axonRemove" fx:id="removeAxonButton" contentDisplay="LEFT" font="$x1" layoutX="300.0" layoutY="3.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.000091552734375" prefWidth="25.0" text="X" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </VBox>
+            <VBox id="VBox" alignment="CENTER" prefHeight="200.0" prefWidth="322.0" spacing="5.0">
+              <children>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="322.0000999999975">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="82.99990844726562" text="Dendrite:" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="1.0" />
+                    <Button id="dendriteAdd" fx:id="addDendriteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="200.0" text="Add Dendrite" AnchorPane.bottomAnchor="4.5" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="2.5" />
+                    <Button id="dendriteRemove" fx:id="removeDendriteButton" contentDisplay="LEFT" font="$x1" layoutX="296.0" layoutY="2.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.000091552734375" prefWidth="25.0" text="X" />
+                  </children>
+                </AnchorPane>
+                <ListView fx:id="dendriteList" prefHeight="366.0" prefWidth="316.0" />
+              </children>
+            </VBox>
+            <VBox id="VBox" alignment="CENTER" prefHeight="235.0" spacing="5.0">
+              <children>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="312.0">
+                  <children>
+                    <Button id="inputRemove" fx:id="removeInputButton" contentDisplay="LEFT" font="$x1" layoutX="287.0" layoutY="3.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.9998779296875" prefWidth="25.0" text="X" />
+                    <Button id="inputAdd" fx:id="addInputButton" layoutX="73.0" layoutY="3.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="200.0" text="Add Input" />
+                    <Label alignment="CENTER_RIGHT" layoutX="0.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="64.0" text="Input:" />
+                  </children>
+                </AnchorPane>
+                <ListView fx:id="inputList" prefHeight="366.0" prefWidth="316.0" />
+              </children>
+            </VBox>
+          </children>
+          <padding>
+            <Insets right="5.0" />
+          </padding>
+        </VBox>
+        <VBox prefHeight="567.0" prefWidth="200.0">
+          <children>
+            <AnchorPane prefHeight="32.0" prefWidth="200.0001220703125">
+              <children>
+                <Label alignment="CENTER" prefHeight="32.0" prefWidth="200.0" text="Cell List" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
+            <ListView fx:id="cellList" prefHeight="525.0" prefWidth="200.0" />
+          </children>
+          <padding>
+            <Insets left="5.0" right="5.0" />
+          </padding>
+        </VBox>
+        <VBox prefHeight="557.0" prefWidth="224.0" HBox.margin="$x2">
+          <children>
+            <AnchorPane prefHeight="32.0" prefWidth="150.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="23.0" prefWidth="217.0" text="Set View" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
+            <TreeView id="setTree" fx:id="setView" prefHeight="526.0" prefWidth="217.0" />
+            <AnchorPane minHeight="32.0" prefHeight="32.0" prefWidth="217.0">
+              <children>
+                <Button fx:id="launchButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="217.0" text="Launch" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                  <font>
+                    <Font size="14.0" />
+                  </font>
+                </Button>
+              </children>
+              <padding>
+                <Insets top="2.0" />
+              </padding>
+            </AnchorPane>
+          </children>
+          <padding>
+            <Insets left="5.0" />
+          </padding>
+        </VBox>
+      </children>
+    </HBox>
+  </children>
+  <padding>
+    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+  </padding>
+</AnchorPane>

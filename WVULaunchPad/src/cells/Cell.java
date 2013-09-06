@@ -3,12 +3,12 @@ package cells;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import neuron.parts.Axon;
-import neuron.parts.Body;
-import neuron.parts.Dendrite;
-import neuron.parts.Input;
-import neuron.parts.Nucleus;
-import neuron.parts.Part;
+import cells.parts.Axon;
+import cells.parts.Body;
+import cells.parts.Dendrite;
+import cells.parts.Input;
+import cells.parts.Nucleus;
+import cells.parts.Part;
 
 
 public class Cell{
