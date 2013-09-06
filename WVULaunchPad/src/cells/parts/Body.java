@@ -1,4 +1,4 @@
-package neuron.parts;
+package cells.parts;
 
 public class Body extends Part{
 	
