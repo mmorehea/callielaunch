@@ -17,8 +17,8 @@
             <AnchorPane minHeight="32.0" prefHeight="42.0" prefWidth="333.0">
               <children>
                 <Button fx:id="newCellButton" layoutX="0.0" layoutY="4.0" mnemonicParsing="false" text="New" />
-                <TextField alignment="CENTER" focusTraversable="false" prefHeight="27.0" prefWidth="201.00009999999747" text="Cell Name" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="2.0" />
-                <Button id="saveButton" fx:id="saveCellButton" layoutX="264.0" layoutY="4.0" minWidth="24.9998779296875" mnemonicParsing="false" prefHeight="23.0" prefWidth="64.0" text="Save">
+                <TextField fx:id="currentCellName" alignment="CENTER" focusTraversable="false" prefHeight="27.0" prefWidth="201.00009999999747" text="Cell Name" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="2.0" />
+                <Button id="saveButton" fx:id="saveCellButton" layoutX="264.0" layoutY="4.0" minWidth="24.9998779296875" mnemonicParsing="false" onAction="#saveCell" prefHeight="23.0" prefWidth="64.0" text="Save">
                   <font>
                     <Font size="13.0" />
                   </font>
@@ -66,7 +66,7 @@
                     <Button id="dendriteRemove" fx:id="removeDendriteButton" contentDisplay="LEFT" font="$x1" layoutX="296.0" layoutY="2.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.000091552734375" prefWidth="25.0" text="X" />
                   </children>
                 </AnchorPane>
-                <ListView id="dendriteList" fx:id="inputList" prefHeight="366.0" prefWidth="316.0" />
+                <ListView fx:id="dendriteList" prefHeight="366.0" prefWidth="316.0" />
               </children>
             </VBox>
             <VBox id="VBox" alignment="CENTER" prefHeight="235.0" spacing="5.0">
